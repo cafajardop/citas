@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Cita = ({cita,eliminarCita}) => ( //DEBEMOS EXTRAER LA CITA //IMPORTANTE SE PUEDE CREAR TAMBIEN UN DIV EN VEZ DE FRAGMENT CUALQUIERA DE LOS DOS ES VALIDO
     <div className="cita"> 
@@ -11,12 +12,16 @@ const Cita = ({cita,eliminarCita}) => ( //DEBEMOS EXTRAER LA CITA //IMPORTANTE S
         <button 
             className="button eliminar u-full-width"
             // onClick={eliminarCita} si paso toda la funcion asi esto llamando todo el objeto por lo cual se pasa es el arrow function
-            onClick ={() => eliminarCita(cita.id)} //Recordemos que este es el id
-        >Eliminar</button>
+            onClick ={() => eliminarCita(cita.id)} //Recordemos que este es el id se pone como arrow function para que espere.... el onclick
+        >Eliminar &times;</button>
 
 
     </div>
-
 );
  
+Cita.propTypes = {
+    cita: PropTypes.object.isRequired,
+    eliminarCita: PropTypes.func.isRequired
+}
+
 export default Cita;
